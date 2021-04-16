@@ -6,20 +6,35 @@ import Details from './Details'
 
 
 const StyledLine = styled.div`
-  margin: auto;
+  margin-top: 5%;
+  margin-left: 10%;
   display: flex;
   justify-content: space-between;
-  border: solid black 1px;
- //   padding: 10%
+  
+  .charName {
+    border-bottom: solid brown 2px; 
+  }
+  button {
+      border-radius: 5px;
+  }
+  .closedButton {
+      color: white;
+      background-color: blue;
+  }
+  .openButton {
+    color: white;
+    background-color: red;
+}
 `
 export default function Character({ key, char }) {
     const [showDetails, setShowDetails] = useState(false);
+    // const [showDetails, setShowDetails] = useState(true); // for dev
     // console.log("Outside JSX showDetails: ",showDetails);
     return (
         <div>
         <StyledLine>
-            {char.name} 
-            <button onClick={(() => {
+            <span className = "charName">{char.name} </span>
+            <button className = {showDetails ? "openButton" : "closedButton"} onClick={(() => {
                 setShowDetails(!showDetails);
                 // console.log(showDetails); //click event is working
             })}>{showDetails ? "-" : "+"}</button>

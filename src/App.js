@@ -7,8 +7,12 @@ import styled from 'styled-components'
 
 const StyledContainer = styled.div`
   margin: auto;
-  width: 50%;
+  width: 25%;
   background-color: lightgray;
+  opacity: .75;
+  // border: solid black 1px;
+  border-radius 1rem;
+  padding: 2%;
 `
 
 const App = () => {
