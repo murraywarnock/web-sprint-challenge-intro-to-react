@@ -3,6 +3,13 @@ import './App.css';
 import axios from 'axios';
 import { BASE_URL } from './constants'
 import Character from './components/Character'
+import styled from 'styled-components'
+
+const StyledContainer = styled.div`
+  margin: auto;
+  width: 50%;
+  background-color: lightgray;
+`
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -21,20 +28,24 @@ const App = () => {
       .catch(err => {
         console.log(err)
       })
-      console.log("Characters: ", characters)
     }, []);
-     
+
+   
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">Characters From Star Wars</h1>
+      {/* <div className="charContainer"> */}
+      <StyledContainer>
       {
         characters.map(char => {
           return <Character 
                     key={char.index} 
-                    char={char}                       
+                    char={char}  
+                    // showDetails={false}                   
                   />
         })
       }
+      </StyledContainer>
     </div>
   );
 }

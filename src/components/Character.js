@@ -1,30 +1,35 @@
 // Write your Character component here
-import React from 'react'
+import React, {useState} from 'react'
 // import styled, { keyframes } from 'styled-components'
 import styled from 'styled-components'
+import Details from './Details'
 
-// const { key, char } = props;
 
 const StyledLine = styled.div`
+  margin: auto;
   display: flex;
+  justify-content: space-between;
   border: solid black 1px;
-//   margin: 10%
-//   padding: 10%
-  `
-
+ //   padding: 10%
+`
 export default function Character({ key, char }) {
-    // const 
+    const [showDetails, setShowDetails] = useState(false);
+    // console.log("Outside JSX showDetails: ",showDetails);
     return (
         <div>
         <StyledLine>
-            <p>
             {char.name} 
-            </p>       
-            {/* <button {onClick(() => {})}>Detail</button> */}
-            <p>
-            <button>DETAIL</button>
-            </p>
+            <button onClick={(() => {
+                setShowDetails(!showDetails);
+                // console.log(showDetails); //click event is working
+            })}>{showDetails ? "-" : "+"}</button>
         </StyledLine>
+        {/* {console.log("Inside JSX showDetails: ",showDetails)} */}
+        
+        { showDetails && 
+            <Details details={char}>
+            </Details>
+        }
         </div>
     )
 };
