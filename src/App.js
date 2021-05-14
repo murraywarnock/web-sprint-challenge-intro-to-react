@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     axios.get(`${BASE_URL}people`)
       .then(res => {
-        console.log(res);
+        // console.log(res);
          setCharacters(res.data)
       })
       .catch(err => {

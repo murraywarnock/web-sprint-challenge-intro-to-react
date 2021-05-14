@@ -12,7 +12,12 @@ const StyledLine = styled.div`
   justify-content: space-between;
   
   .charName {
-    border-bottom: solid brown 2px; 
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      border-bottom:  solid brown 2px; 
+    }
+  
   }
   button {
       border-radius: 5px;
@@ -33,11 +38,10 @@ export default function Character({ key, char }) {
     return (
         <div>
         <StyledLine>
-            <span className = "charName">{char.name} </span>
             <button className = {showDetails ? "openButton" : "closedButton"} onClick={(() => {
                 setShowDetails(!showDetails);
-                // console.log(showDetails); //click event is working
             })}>{showDetails ? "-" : "+"}</button>
+            <span className = "charName">{char.name} </span>
         </StyledLine>
         {/* {console.log("Inside JSX showDetails: ",showDetails)} */}
         

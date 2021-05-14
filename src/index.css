@@ -1,3 +1,16 @@
+/* Centers vertically on page, but aligns image right */
+/* html, body {
+  height: 100%;
+}
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+} */
 body {
   margin: 0;
   padding: 0;
